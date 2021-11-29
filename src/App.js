@@ -16,7 +16,7 @@ function App() {
   const y = 2;
   return (
     <div className="App">
-      <NavBar routes={ routes}/>
+      <NavBar routes={routes} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
