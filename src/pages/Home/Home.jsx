@@ -9,4 +9,4 @@ function Home(props) {
   );
 }
 
-export default Home;
+export { Home };
