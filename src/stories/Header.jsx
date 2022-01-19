@@ -5,6 +5,7 @@ import { Button } from './Button';
 import './header.css';
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
+  console.log(user)
   <header>
     <div className="wrapper">
       <div>
