@@ -1,0 +1,43 @@
+{
+  "FRONT": {
+    "App": {
+      "Screens": {
+        "ProjectLevel": {},
+        "Unit": {
+          "UnitChat": "UnitChat",
+          "Dashboard": {
+            "GridWrapper": {
+              "Grid": {
+                "GridContainer": {
+                  "Octopus": {
+                    "ListValves": {
+                      "Valve": "Valve"
+                    }
+                  },
+                  "ListProgramsItem": {
+                    "ProgramItem": {
+                      "Program": {
+                        "ProgramEdit": {},
+                        "ListProgramsItem": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Alerts": {},
+          "Settings": {},
+          "Users": {},
+          "Logs & Reports": {
+            "GridWrapper": {
+              "Grid": {
+                "GridContainer": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
