@@ -1,0 +1,19 @@
+.container {
+  width: 90vw;
+  background-color: #ffeb34;
+  margin: 0 auto;
+}
+
+.userGrid {
+  display: grid;
+  /* grid-template-columns: repeat(5, 20%); */
+  justify-content: center;
+  /*   grid-gap: 10px; */
+}
+
+.gridItem {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
