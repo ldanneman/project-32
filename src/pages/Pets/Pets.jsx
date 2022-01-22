@@ -27,11 +27,11 @@ function Pets() {
   React.useEffect(() => {
     getRequest("https://api.thedogapi.com/v1/breeds", setData);
   }, []);
-  console.log("data", [data?.[0]]);
+  console.log("data", data);
   return (
     <div>
       <div>Pets</div>
-      <Table columns={columns} data={data2} />
+      <Table data={data} />
     </div>
   );
 }

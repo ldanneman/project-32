@@ -8,16 +8,25 @@ function Table({ columns, data }) {
   if (columns) {
     tableColumns = columns;
   } else {
-    const keys = Object.keys(data[0]);
-    keys.forEach((item) => {
+    const allKeys = [];
+    data.map((item) => {
+      const zz = Object.keys(item);
+      for (let i = 0; i < zz.length; i++) {
+        if (!allKeys.some((j) => j === zz[i])) {
+          allKeys.push(zz[i]);
+        }
+      }
+    });
+    allKeys.forEach((item) => {
       let obj = { title: item.replaceAll(/_/gi, " "), label: item };
       newArray.push(obj);
     });
     tableColumns = newArray;
   }
   const length = tableColumns.length;
+  console.log("columns", tableColumns);
   return (
-    <div>
+    <div className={styles.container}>
       <div
         className={styles.userGrid}
         style={{
@@ -27,23 +36,51 @@ function Table({ columns, data }) {
         }}
       >
         {tableColumns.map((tableColumn) => (
-          <div className={styles.gridItem}>{tableColumn.title}</div>
+          <div
+            className={styles.gridItem}
+            style={{ fontWeight: "bold", backgroundColor: "gray" }}
+          >
+            {tableColumn.title}
+          </div>
         ))}
       </div>
-      <div
-        className={styles.userGrid}
-        style={{
-          gridTemplateColumns: `repeat(${tableColumns.length}, ${
-            100 / tableColumns.length
-          }%)`,
-        }}
-      >
-        {data.map((item, i) => {
-          return Object.values(item).map((it, i) => (
-            <div className={styles.gridItem}>{it}</div>
-          ));
-        })}
-      </div>
+      {data && (
+        <div
+          className={styles.userGrid}
+          style={{
+            gridTemplateColumns: `repeat(${tableColumns.length}, ${
+              100 / tableColumns.length
+            }%)`,
+          }}
+        >
+          {data.map((item, z) => {
+            console.log(z, Object.values(item));
+
+            return Object.keys(item)
+              .sort(
+                (a, b) =>
+                  tableColumns.indexOf(a.title) - tableColumns.indexOf(b.title)
+              )
+              .map((it, i) => {
+                console.log("IT", it);
+                return (
+                  <div
+                    className={styles.gridItem}
+                    style={{
+                      ...(z % 2 === 0 && { backgroundColor: "lightGray" }),
+                    }}
+                  >
+                    {typeof item[`${it}`] !== "object" ? (
+                      item[`${it}`]
+                    ) : (
+                      <div>[object]</div>
+                    )}
+                  </div>
+                );
+              });
+          })}
+        </div>
+      )}
     </div>
   );
 }
