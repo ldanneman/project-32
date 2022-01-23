@@ -15,7 +15,7 @@ function ColorPicker() {
   const handleClick = () => {
     setShowModal(!showModal);
   };
-
+  console.log(selected);
   const handleSelected = (i) => {
     if (i === selected) {
       setSelected(-1);
@@ -23,6 +23,7 @@ function ColorPicker() {
       setSelected(i);
     }
   };
+  console.log(chosen);
   const handleClose = () => {
     setChosen(colors[selected]);
     setShowModal(!showModal);
