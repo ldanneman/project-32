@@ -4,7 +4,7 @@ import "./App.css";
 // import Home from "./pages/Home";
 // import About from "./pages/About";
 // import Stocks from "./pages/Stocks";
-import { Home, Stocks, About, Settings } from "pages";
+import { Home, Stocks, About, Settings, Pets } from "pages";
 import NavBar from "./components/NavBar/NavBar";
 import { routes } from "./data/routes";
 
@@ -16,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="stocks" element={<Stocks />} />
+        <Route path="pets" element={<Pets />} />
         <Route path="settings" element={<Settings />} />
       </Routes>
     </div>

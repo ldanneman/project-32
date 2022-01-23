@@ -52,7 +52,7 @@ function ColorPicker() {
                   ...(i === selected
                     ? {
                         borderColor: "white",
-                        borderWidth: 3,
+                        borderWidth: 5,
                       }
                     : {}),
                 }}
