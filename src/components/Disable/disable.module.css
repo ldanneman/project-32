@@ -1,0 +1,13 @@
+.grayed {
+  display: inline-flex;
+  z-index: 99;
+  cursor: not-allowed;
+}
+
+.child {
+  z-index: -99;
+  filter: blur(0.8px) grayscale(100%) opacity(70%);
+}
+.none {
+  display: inline-flex;
+}
