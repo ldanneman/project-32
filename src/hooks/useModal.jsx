@@ -7,7 +7,7 @@ function useModal() {
     setModalVisible(!modalVisible);
   };
   const closeModal = () => setModalVisible(false);
-  const HookModal = React.memo(
+  const Modal = React.memo(
     ({ children, customStyle, onModalShow, ...props }) => {
       return (
         <div
@@ -23,7 +23,7 @@ function useModal() {
       );
     }
   );
-  return [HookModal, openModal, closeModal];
+  return [Modal, openModal, closeModal];
 }
 
 export default useModal;
