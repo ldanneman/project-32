@@ -3,9 +3,9 @@ import styles from "./button.module.css";
 
 function Button({ children, onClick, ...props }) {
   return (
-    <div onClick={onClick} className={styles.button} {...props}>
+    <button onClick={onClick} className={styles.button} {...props}>
       {children}
-    </div>
+    </button>
   );
 }
 
