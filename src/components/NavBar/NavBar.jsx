@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
+import AppContext from "context/appContext";
+import Button from "../../components/Button/Button";
 
-function NavBar({ routes }) {
+function NavBar({ routes, ...props }) {
+  const { user, setUser } = useContext(AppContext);
   const keys = Object.keys(routes);
   return (
-    <div>
+    <div {...props}>
       <nav>
         <ul className={styles.ul}>
           {keys.map((key, i) => {

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./css/modal.module.css";
+import Button from "../components/Button/Button";
 
 function useModal() {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -18,6 +19,11 @@ function useModal() {
         >
           <div className={styles.modalContent} style={customStyle} {...props}>
             {children}
+            <div className={styles.buttonContainer}>
+              <div className={styles.button}>
+                <Button onClick={() => closeModal()}>Close</Button>
+              </div>
+            </div>
           </div>
         </div>
       );

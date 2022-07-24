@@ -1,24 +1,57 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-// import Home from "./pages/Home";
-// import About from "./pages/About";
-// import Stocks from "./pages/Stocks";
 import { Home, Stocks, About, Settings, Pets } from "pages";
 import NavBar from "./components/NavBar/NavBar";
 import { routes } from "./data/routes";
+import AppContext from "context/appContext";
+import Button from "./components/Button/Button";
+import Auth from "./components/Auth/Auth";
+import useModal from "hooks/useModal";
 
 function App() {
+  const [user, setUser] = useState(false);
+  const [Modal, openModal, closeModal] = useModal();
+
+  const signIn = () => {
+    user ? setUser(!user) : openModal();
+  };
+
   return (
     <div className="App">
-      <NavBar routes={routes} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="stocks" element={<Stocks />} />
-        <Route path="pets" element={<Pets />} />
-        <Route path="settings" element={<Settings />} />
-      </Routes>
+      <AppContext.Provider value={{ user, setUser }}>
+        <div
+          style={{
+            display: "flex",
+            border: "1px solid red",
+          }}
+        >
+          <NavBar routes={routes} style={{ flex: 25 }} />
+          <div
+            style={{
+              backgroundColor: "#0a1929",
+              paddingRight: "5px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Button onClick={signIn} style={{ flex: 1 }}>
+              {user ? "Logout" : "Login/Signup"}
+            </Button>
+          </div>
+        </div>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="stocks" element={<Stocks />} />
+          <Route path="pets" element={<Pets />} />
+          <Route path="settings" element={<Settings />} />
+        </Routes>
+        <Modal>
+          <Auth closeModal={closeModal} />
+        </Modal>
+      </AppContext.Provider>
     </div>
   );
 }
