@@ -4,7 +4,9 @@ export const Input = ({ label, register, required, errors }) => (
   <>
     <label>{label}</label>
     <input {...register(label, { required })} />
-    <div>{errors[label] && <span>{label} is required</span>}</div>
+    <div style={{ color: "red" }}>
+      {errors[label] && <span>{label} is required</span>}
+    </div>
   </>
 );
 
@@ -28,7 +30,9 @@ export const Select = React.forwardRef(
           </option>
         ))}
       </select>
-      <div>{errors[label] && <span>{label} is required</span>}</div>
+      <div style={{ color: "red" }}>
+        {errors[label] && <span>{label} is required</span>}
+      </div>
     </>
   )
 );

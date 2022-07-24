@@ -8,6 +8,7 @@ import AppContext from "context/appContext";
 import Button from "./components/Button/Button";
 import Auth from "./components/Auth/Auth";
 import useModal from "hooks/useModal";
+import Error404 from "pages/Errors/Error404";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -48,10 +49,11 @@ function App() {
             <Route path="stocks" element={<Stocks />} />
             <Route path="pets" element={<Pets />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="*" element={<Error404 />} />
           </Routes>
         ) : (
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         )}
         <Modal>
