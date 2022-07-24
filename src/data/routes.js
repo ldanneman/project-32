@@ -5,3 +5,7 @@ export const routes = {
   3: { path: "/pets", name: "Pets" },
   4: { path: "/settings", name: "Settings" },
 };
+
+export const homeRoute = {
+  0: { path: "/", name: "Home" },
+};

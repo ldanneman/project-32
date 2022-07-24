@@ -3,7 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import { Home, Stocks, About, Settings, Pets } from "pages";
 import NavBar from "./components/NavBar/NavBar";
-import { routes } from "./data/routes";
+import { routes, homeRoute } from "./data/routes";
 import AppContext from "context/appContext";
 import Button from "./components/Button/Button";
 import Auth from "./components/Auth/Auth";
@@ -26,7 +26,7 @@ function App() {
             border: "1px solid red",
           }}
         >
-          <NavBar routes={routes} style={{ flex: 25 }} />
+          <NavBar routes={user ? routes : homeRoute} style={{ flex: 25 }} />
           <div
             style={{
               backgroundColor: "#0a1929",
@@ -41,13 +41,19 @@ function App() {
           </div>
         </div>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="stocks" element={<Stocks />} />
-          <Route path="pets" element={<Pets />} />
-          <Route path="settings" element={<Settings />} />
-        </Routes>
+        {user ? (
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="stocks" element={<Stocks />} />
+            <Route path="pets" element={<Pets />} />
+            <Route path="settings" element={<Settings />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        )}
         <Modal>
           <Auth closeModal={closeModal} />
         </Modal>
