@@ -7,6 +7,7 @@ import users from "../../data/users.json";
 import { Input, Select } from "../../components/FormTypes/FormTypes";
 import Tabs from "../Tabs/Tabs";
 import { useNavigate } from "react-router-dom";
+import Text from "../Text/Text";
 
 function Auth({ closeModal }) {
   const { user, setUser } = useContext(AppContext);
@@ -59,7 +60,7 @@ function Auth({ closeModal }) {
           />
           <Button type="submit">SignIn</Button>
         </form>
-        <text style={{ color: "red" }}>{error}</text>
+        <div style={{ color: "red" }}>{error}</div>
       </>
     );
   };
@@ -111,7 +112,7 @@ function Auth({ closeModal }) {
           />
           <Button type="submit">Sign Up</Button>
         </form>
-        <text style={{ color: "red" }}>{error}</text>
+        <div style={{ color: "red" }}>{error}</div>
       </>
     );
   };

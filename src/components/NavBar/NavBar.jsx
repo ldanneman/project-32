@@ -13,7 +13,7 @@ function NavBar({ routes, ...props }) {
         <ul className={styles.ul}>
           {keys.map((key, i) => {
             return (
-              <li className={styles.li}>
+              <li className={styles.li} key={i}>
                 <Link className={styles.link} to={routes[i].path}>
                   {routes[i].name}
                 </Link>

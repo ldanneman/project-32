@@ -6,7 +6,7 @@ function About() {
   return (
     <div>
       <div>About</div>
-      <text>{count}</text>{" "}
+      <div>{count}</div>{" "}
       <button onClick={() => setCount((prev) => prev + 1)}>+</button>{" "}
       <Disable condition={count % 2 === 0}>
         <button
