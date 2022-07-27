@@ -21,12 +21,7 @@ function App() {
   return (
     <div className="App">
       <AppContext.Provider value={{ user, setUser }}>
-        <div
-          style={{
-            display: "flex",
-            border: "1px solid red",
-          }}
-        >
+        <div style={{ display: "flex" }}>
           <NavBar routes={user ? routes : homeRoute} style={{ flex: 25 }} />
           <div
             style={{

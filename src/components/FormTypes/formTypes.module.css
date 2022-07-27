@@ -1,0 +1,43 @@
+.inputLabel {
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+  }
+
+  .submitButton {
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+  }
+
+  .select {
+    width: 204px;
+    border: none;
+  }
+
+  .select:focus {
+    outline: none;
+  }
+
+  .input {
+    width: 200px;
+    height: 1.2rem; 
+    border-style: groove;
+    border-radius: 2px;
+  
+  }
+  .input:focus {
+    outline: none;
+  }
+
+  .outer {
+    margin-bottom: 10px;
+  }
+
+  .selectBorder{
+    display: inline-block;
+    border: 2px solid black;
+    border-style: groove;
+    height: 1.4rem;
+    border-radius: 2px;
+  }
