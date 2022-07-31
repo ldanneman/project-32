@@ -32,7 +32,6 @@ function Auth({ closeModal }) {
     }
     setError("Invalid username or password");
   };
-
   const onSignUp = (data) => {
     console.log(data);
   };
@@ -68,49 +67,99 @@ function Auth({ closeModal }) {
   const SignUpForm = () => {
     return (
       <>
-        <form onSubmit={handleSubmit(onSignUp)}>
+        <iframe
+          id="secret-frame"
+          name="secret-frame"
+          width="0"
+          height="0"
+          border="0"
+          style={{ display: "none" }}
+        ></iframe>
+        <form
+          //   onSubmit={handleSubmit(onSignUp)}
+          action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeb3turec-Lmw4rVoaYE0flFIxgvZGoIjRApCZTqIqraA__oA/formResponse"
+          target="secret-frame"
+          method="POST"
+        >
           <Input
             label="First Name"
             register={register}
             errors={errors}
+            name="entry.1195399140"
             required
           />
           <Input
             label="Last Name"
             register={register}
             errors={errors}
+            name="entry.1374906180"
             required
           />
           <Input
             label="User Name"
             register={register}
             errors={errors}
+            name="entry.1776659528"
             required
           />
-          <Input label="Email" register={register} errors={errors} required />
+          <Input
+            label="Email"
+            register={register}
+            errors={errors}
+            name="entry.1735760702"
+            required
+          />
           <Input
             label="Password"
             register={register}
             errors={errors}
+            name="entry.613206417"
             required
           />
-          <Select
+          <Input
             label="Age"
             register={register}
-            options={ages}
+            // options={ages}
             errors={errors}
+            name="entry.449075269"
             required
           />
-          <Input label="Address" register={register} errors={errors} required />
-          <Input label="City" register={register} errors={errors} required />
-          <Input label="State" register={register} errors={errors} required />
+          <Input
+            label="Address"
+            register={register}
+            errors={errors}
+            name="entry.407567605"
+            required
+          />
+          <Input
+            label="City"
+            register={register}
+            errors={errors}
+            name="entry.531979991"
+            required
+          />
+          <Input
+            label="State"
+            register={register}
+            errors={errors}
+            name="entry.2107086002"
+            required
+          />
           <Input
             label="Zip Code"
             register={register}
             errors={errors}
+            name="entry.1046802205"
             required
           />
-          <Button type="submit">Sign Up</Button>
+          <Button
+            id="submit"
+            type="submit"
+            value="Submit"
+            // onClick={(e) => handleGoogleSubmit(e)}
+          >
+            Sign Up
+          </Button>
         </form>
         <div style={{ color: "red" }}>{error}</div>
       </>
