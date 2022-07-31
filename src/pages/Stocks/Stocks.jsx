@@ -3,6 +3,7 @@ import useModal from "../../hooks/useModal";
 import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
 import ListItem from "../../components/ListItem/ListItem";
+import useSearch from "../../hooks/useSearch";
 
 const data = [
   { title: "hello", body: "one", footer: "gooter" },
@@ -13,13 +14,12 @@ const data = [
   { title: "say", body: "hello", footer: "fffer" },
 ];
 function Stocks() {
+  const [SearchBar, filteredData] = useSearch({ data });
   return (
-    <ListItem
-      data={data}
-      Item={Card}
-      // itemProps={{ title: "title", body: "", footer: "" }}
-      itemProps={["title", "body", "footer"]}
-    />
+    <>
+      <SearchBar />
+      <ListItem data={filteredData} Item={Card} />
+    </>
   );
 }
 
