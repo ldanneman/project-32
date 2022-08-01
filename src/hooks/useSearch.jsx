@@ -3,12 +3,11 @@ import NavBar from "../components/NavBar/NavBar";
 // import Button from "components/Button/Button";
 import { Input } from "../components/FormTypes/FormTypes";
 
-
 function useSearch({ data }) {
   const [search, setSearch] = React.useState("");
   const filteredData = React.useMemo(() => {
-    const filter = data.filter(
-      (item) => item.title.includes(search) || item.body.includes(search)
+    const filter = data.filter((item) =>
+      Object.values(item).some((val) => val.includes(search))
     );
     if (search == "" || !filter.length) return data;
     return filter;
@@ -29,6 +28,7 @@ function useSearch({ data }) {
     );
   }, []);
 
+  if (!filteredData.length) return null;
   return [SearchBar, filteredData];
 }
 
