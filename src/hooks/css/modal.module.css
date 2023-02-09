@@ -1,0 +1,32 @@
+.modal {
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+    backdrop-filter: blur(2px) grayscale(1) drop-shadow(4px 4px 10px blue);
+  }
+  .modalContent {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    max-width: 40%;
+    min-height: 20%;
+    margin-top: 100px;
+  }
+  .buttonContainer {
+    display: 'flex';
+    margin-top: auto;
+    justify-content: flex-end;
+    text-align: right;
+  }
+  .button {
+    display: inline-block;
+  }
