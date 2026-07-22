@@ -8,7 +8,10 @@ function Tabs({ options }) {
       {options.map((option, i) => (
         <Button
           key={i}
-          onClick={() => setSelected(i)}
+          onClick={() => {
+            setSelected(i);
+            console.log(selected, 'clicked');
+          }}
           style={{
             ...(i !== selected && { backgroundColor: "gray" }),
             borderRadius: 2,
